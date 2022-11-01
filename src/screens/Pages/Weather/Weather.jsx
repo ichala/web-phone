@@ -43,7 +43,7 @@ function Weather() {
       >
         {!WeatherData
           ? (
-            <div className="border flex justify-center items-center h-full rounded-md p-4 w-full">
+            <div className="flex justify-center items-center h-full w-full">
               <div className="animate-pulse text-4xl text-white">
                 <div className="avatar">
                   <div className="w-16 mask mask-squircle">
