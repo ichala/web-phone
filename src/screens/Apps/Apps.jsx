@@ -7,7 +7,7 @@ function Apps() {
       <Link to="/weather">
         <div className="avatar">
           <div className="w-16 mask mask-squircle">
-            <img src="https://placeimg.com/192/192/people" alt="lol" />
+            <img src="/assets/images/weather-app.jpg" alt="weather-app" />
           </div>
         </div>
       </Link>
