@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase';
+import Loader from '../Layout/components/Loader';
 
 export const AuthContext = createContext();
 
@@ -30,9 +31,7 @@ export const AuthContextProvider = ({ children }) => {
   }
   return (
     <AuthContext.Provider value={{ currentUser }}>
-      {/* <div className={Styles.loader}>
-        <Loader type="cylon" color="#1372a9" />
-      </div> */}
+      <Loader />
     </AuthContext.Provider>
   );
 };
