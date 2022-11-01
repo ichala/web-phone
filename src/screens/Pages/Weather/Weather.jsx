@@ -2,6 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 function Weather() {
+  async function getWeather() {
+    await fetch('https://api.openweathermap.org/data/2.5/weather?q=tunisia&appid=35a8c1cb0eb14e9be1029f4c2b074b4d').then(
+      (res) => res.json(),
+    ).then((data) => console.log(data));
+  }
+  getWeather();
+
   return (
     <>
       <motion.div
