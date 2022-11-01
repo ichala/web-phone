@@ -32,7 +32,7 @@ function Weather() {
   return (
     <>
       <motion.div
-        className="absolute top-0 left-0 bg-gradient-to-b from-cyan-500 to-blue-500 h-full w-full"
+        className="absolute top-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500 h-full w-full"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
