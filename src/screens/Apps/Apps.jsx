@@ -11,11 +11,13 @@ function Apps() {
           </div>
         </div>
       </Link>
-      <div className="avatar">
-        <div className="w-16 mask mask-squircle">
-          <img src="https://placeimg.com/192/192/people" alt="lol" />
+      <Link to="/tictactoe">
+        <div className="avatar">
+          <div className="w-16 mask mask-squircle">
+            <img src="/assets/images/tiktak.jpg" alt="lol" />
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="avatar">
         <div className="w-16 mask mask-squircle">
           <img src="https://placeimg.com/192/192/people" alt="lol" />
