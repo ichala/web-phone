@@ -1,6 +1,7 @@
 import Apps from '../screens/Apps/Apps';
 import Home from '../screens/Home/Home';
 import Login from '../screens/Login/Login';
+import Weather from '../screens/Pages/Weather/Weather';
 import Settings from '../screens/Settings/Settings';
 import Protected from './Auth/Protected';
 
@@ -19,6 +20,10 @@ const routesConfig = [
       {
         path: '/apps',
         element: <Apps />,
+      },
+      {
+        path: '/weather',
+        element: <Weather />,
       },
     ],
   },
