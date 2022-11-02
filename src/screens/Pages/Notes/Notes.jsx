@@ -8,6 +8,8 @@ import NoteMin from './components/NoteMin';
 import { UserDataContext } from '../../../config/UserData/storage';
 
 function Notes() {
+  // TODO: Filter Notes
+  // TODO: Delete Notes
   const [Loading, setLoading] = useState(true);
   const { UserData, setUserData } = useContext(UserDataContext);
   const navigate = useNavigate();
@@ -55,7 +57,7 @@ function Notes() {
       }}
     >
       {Loading ? (
-        <div className="flex justify-center items-center h-full w-full">
+        <div className="flex justify-center  items-center h-full w-full">
           <div className="animate-pulse text-4xl text-white">
             <div className="avatar">
               <div className="w-16 mask mask-squircle">
@@ -67,9 +69,9 @@ function Notes() {
       )
         : (
           <>
-            <div className="relative h-full">
-              <div className="mt-10 p-3 flex items-center text-orange-400">
-                <input type="text" className="input input-sm w-full bg-transparent border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
+            <div className="relative  h-full">
+              <div className="mt-10 p-4 flex items-center text-orange-400">
+                <input type="text" className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
               <div className="flex flex-wrap justify-center max-h-full items-center gap-4 overflow-y-scroll no-scrollbar">
                 {UserData.notes ? UserData.notes.map((note) => (
@@ -79,7 +81,7 @@ function Notes() {
                 )) : <p className="text-gray-400">Create your first note !</p>}
               </div>
               <div className="absolute bottom-[130px] z-10 right-[10px] ">
-                <button type="button" className="btn bg-orange-400 hover:bg-orange-600  btn-circle text-white">
+                <button type="button" className="btn glass bg-orange-800 hover:bg-orange-600  btn-circle text-white">
                   <AiOutlinePlus size={30} onClick={CreateNote} />
                 </button>
               </div>
