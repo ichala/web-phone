@@ -12,6 +12,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.13",
+    "awesome-react-calculator": "^1.1.0",
     "daisyui": "^2.37.0",
     "eslint-config-airbnb": "18.x",
     "eslint-plugin-import": "2.x",

@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.result-panel{
+overflow: hidden;
+}
+.last {
+    background-color: rgb(46,95,201) !important;
+}
