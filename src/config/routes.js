@@ -2,6 +2,7 @@ import Apps from '../screens/Apps/Apps';
 import Home from '../screens/Home/Home';
 import Login from '../screens/Login/Login';
 import Calculator from '../screens/Pages/Calculator/Calculator';
+import Note from '../screens/Pages/Notes/components/Note';
 import Notes from '../screens/Pages/Notes/Notes';
 import Tictac from '../screens/Pages/Tictac/Tictac';
 import Weather from '../screens/Pages/Weather/Weather';
@@ -35,6 +36,10 @@ const routesConfig = [
       {
         path: '/notes',
         element: <Notes />,
+      },
+      {
+        path: '/notes/:id',
+        element: <Note />,
       },
       {
         path: '/tictactoe',

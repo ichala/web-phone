@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { AiOutlinePlus } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import NoteMin from './components/NoteMin';
 
 function Notes() {
   const [Loading, setLoading] = useState(true);
+  const NotesList = [{
+    id: 1,
+    title: 'Hello World',
+    content: 'this is a long description for testing',
+    date: 'October 28',
+  }];
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -38,12 +46,11 @@ function Notes() {
                 <input type="text" className="input input-sm w-full bg-transparent border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
               <div className="flex flex-wrap justify-center max-h-full items-center gap-4 overflow-y-scroll no-scrollbar">
-                <div className="note text-white  w-[170px] h-[100px] p-3 bg-zinc-700 rounded-lg flex flex-col">
-                  <div className="title text-bold uppercase truncate">title</div>
-                  <div className="description text-zinc-300 truncate text-semibold  text-md">testseqssqsqsqqsqssqs</div>
-                  <div className="text-zinc-400 mt-3 text-semibold text-sm">20 October</div>
-                </div>
-
+                {NotesList.map((note) => (
+                  <Link key={note.id} to={`${note.id}`}>
+                    <NoteMin data={note} />
+                  </Link>
+                ))}
               </div>
               <div className="absolute bottom-[130px] z-10 right-[10px] ">
                 <button type="button" className="btn bg-orange-400 hover:bg-orange-600  btn-circle text-white">
