@@ -18,7 +18,14 @@ function Apps() {
           </div>
         </div>
       </Link>
-      <div className="avatar">
+      <Link to="/calculator">
+        <div className="avatar">
+          <div className="w-16 mask mask-squircle">
+            <img src="/assets/images/calculator.png" alt="lol" />
+          </div>
+        </div>
+      </Link>
+      {/* <div className="avatar">
         <div className="w-16 mask mask-squircle">
           <img src="https://placeimg.com/192/192/people" alt="lol" />
         </div>
@@ -32,7 +39,7 @@ function Apps() {
         <div className="w-16 mask mask-squircle">
           <img src="https://placeimg.com/192/192/people" alt="lol" />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
