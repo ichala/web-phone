@@ -1,21 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { AiOutlinePlus } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import moment from 'moment/moment';
+import { v4 as uuidv4 } from 'uuid';
 import NoteMin from './components/NoteMin';
+import { UserDataContext } from '../../../config/UserData/storage';
 
 function Notes() {
   const [Loading, setLoading] = useState(true);
-  const NotesList = [{
-    id: 1,
-    title: 'Hello World',
-    content: 'this is a long description for testing',
-    date: 'October 28',
-  }];
+  const { UserData, setUserData } = useContext(UserDataContext);
+  const navigate = useNavigate();
+  const CreateNote = () => {
+    const date = moment().format('MMM DD');
+    const id = uuidv4();
+    if (UserData.notes) {
+      setUserData({
+        ...UserData,
+        notes: [...UserData.notes, {
+          id,
+          title: 'title',
+          content: 'Add notes ...',
+          date,
+        }],
+      });
+      navigate(id);
+    } else {
+      setUserData({
+        ...UserData,
+        notes: [{
+          id,
+          title: 'title',
+          content: 'Add notes ...',
+          date,
+        }],
+      });
+      navigate(id);
+    }
+  };
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 500);
   }, []);
   return (
     <motion.div
@@ -46,17 +72,16 @@ function Notes() {
                 <input type="text" className="input input-sm w-full bg-transparent border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
               <div className="flex flex-wrap justify-center max-h-full items-center gap-4 overflow-y-scroll no-scrollbar">
-                {NotesList.map((note) => (
+                {UserData.notes ? UserData.notes.map((note) => (
                   <Link key={note.id} to={`${note.id}`}>
                     <NoteMin data={note} />
                   </Link>
-                ))}
+                )) : <p className="text-gray-400">Create your first note !</p>}
               </div>
               <div className="absolute bottom-[130px] z-10 right-[10px] ">
                 <button type="button" className="btn bg-orange-400 hover:bg-orange-600  btn-circle text-white">
-                  <AiOutlinePlus size={30} />
+                  <AiOutlinePlus size={30} onClick={CreateNote} />
                 </button>
-
               </div>
             </div>
           </>

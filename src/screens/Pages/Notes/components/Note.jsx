@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ImArrowLeft } from 'react-icons/im';
 import { AiFillDelete } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { UserDataContext } from '../../../../config/UserData/storage';
 
 function Note() {
-  const note = {
-    id: 1,
-    title: 'Hello World',
-    content: 'this is a long description for testing',
-    date: 'October 28',
-  };
+  const { id } = useParams();
+  const { UserData, setUserData } = useContext(UserDataContext);
+  const CurrentNote = UserData.notes?.filter((n) => n.id === id);
+  function updateNote(e) {
+    setUserData((prevState) => ({
+      ...prevState,
+      notes: UserData.notes.map((note) => {
+        if (note.id === id) {
+          return { ...note, [e.target.name]: e.target.value };
+        }
+        return note;
+      }),
+    }));
+  }
+
   return (
     <motion.div
       className="absolute top-0 left-0 bg-gradient-to-t from-slate-900 to-zinc-900 h-full w-full"
@@ -29,12 +39,12 @@ function Note() {
         </div>
       </div>
       <div className="flex flex-col h-full">
-        <input type="text" maxLength={25} className="input bg-transparent text-2xl text-white" defaultValue={note.title} />
+        <input name="title" type="text" maxLength={25} className="input bg-transparent text-2xl text-white" onChange={(e) => updateNote(e)} placeholder="Title" defaultValue={CurrentNote[0].title} />
         <div className="form-control h-full">
           <label className="label">
-            <span className="label-text text-orange-500 ml-3">{note.date}</span>
+            <span className="label-text text-orange-500 ml-3">{CurrentNote[0].date}</span>
           </label>
-          <textarea className="textarea  bg-transparent text-white h-full no-scrollbar" placeholder="Add notes" defaultValue={note.content} />
+          <textarea name="content" className="textarea  bg-transparent text-white h-full no-scrollbar" onChange={(e) => updateNote(e)} placeholder="Add notes" defaultValue={CurrentNote[0].content} />
         </div>
       </div>
     </motion.div>
