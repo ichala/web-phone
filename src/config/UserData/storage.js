@@ -1,11 +1,9 @@
-import { useState, createContext, useContext } from 'react';
-import { AuthContext } from '../Auth/context';
+import { useState, createContext } from 'react';
 
 export const UserDataContext = createContext();
 
 export const UserDataProvider = ({ children }) => {
-  const user = useContext(AuthContext).currentUser;
-  const [UserData, setUserData] = useState(JSON.parse(localStorage.getItem('UserData')) || { user, theme: 'light' });
+  const [UserData, setUserData] = useState(JSON.parse(localStorage.getItem('UserData')) || { theme: 'light' });
   localStorage.setItem('UserData', JSON.stringify(UserData));
   return (
     <UserDataContext.Provider value={{ UserData, setUserData }}>
