@@ -8,13 +8,13 @@ function App() {
   const routes = useRoutes(routesConfig);
   return (
     <>
-      <Layout>
-        <AuthContextProvider>
-          <UserDataProvider>
+      <UserDataProvider>
+        <Layout>
+          <AuthContextProvider>
             {routes}
-          </UserDataProvider>
-        </AuthContextProvider>
-      </Layout>
+          </AuthContextProvider>
+        </Layout>
+      </UserDataProvider>
     </>
   );
 }
