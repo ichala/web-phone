@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserDataContext } from '../UserData/storage';
 import BottomNav from './components/BottomNav';
 
 function Layout({ children }) {
+  const { UserData } = useContext(UserDataContext);
   return (
-    <div data-theme="wireframe" className="main antialiased font-display flex justify-center align-center items-center h-screen">
+    <div data-theme={`${UserData.darkmode ? 'black' : 'wireframe'}`} className="main antialiased font-display flex justify-center align-center items-center h-screen">
       <div className="mockup-phone">
         <div className="camera" />
         <div className="display  overflow-hidden">
