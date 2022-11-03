@@ -8,11 +8,10 @@ import NoteMin from './components/NoteMin';
 import { UserDataContext } from '../../../config/UserData/storage';
 
 function Notes() {
-  // TODO: Filter Notes
-  // TODO: Delete Notes
   const [Loading, setLoading] = useState(true);
   const { UserData, setUserData } = useContext(UserDataContext);
   const navigate = useNavigate();
+  const [FiltredNotes, setFiltredNotes] = useState(UserData.notes);
   const CreateNote = () => {
     const date = moment().format('MMM DD');
     const id = uuidv4();
@@ -26,7 +25,6 @@ function Notes() {
           date,
         }],
       });
-      navigate(id);
     } else {
       setUserData({
         ...UserData,
@@ -37,9 +35,19 @@ function Notes() {
           date,
         }],
       });
-      navigate(id);
     }
+    navigate(id);
   };
+  function filternotes(filter) {
+    if (filter !== '') {
+      setFiltredNotes(FiltredNotes.filter(
+        (note) => note.title.toLowerCase().includes(filter.toLowerCase())
+         || note.content.toLowerCase().includes(filter.toLowerCase()),
+      ));
+    } else {
+      setFiltredNotes(UserData.notes);
+    }
+  }
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -71,10 +79,10 @@ function Notes() {
           <>
             <div className="relative  h-full">
               <div className="mt-10 p-4 flex items-center text-orange-400">
-                <input type="text" className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
+                <input type="text" onChange={(e) => filternotes(e.target.value)} className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
-              <div className="flex flex-wrap justify-center max-h-full items-center gap-4 overflow-y-scroll no-scrollbar">
-                {UserData.notes ? UserData.notes.map((note) => (
+              <div className="flex flex-wrap justify-center max-h-[550px] items-center gap-4 overflow-y-scroll no-scrollbar">
+                {UserData.notes ? FiltredNotes.map((note) => (
                   <Link key={note.id} to={`${note.id}`}>
                     <NoteMin data={note} />
                   </Link>
