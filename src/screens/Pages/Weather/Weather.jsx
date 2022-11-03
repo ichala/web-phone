@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { AiOutlineCloud } from 'react-icons/ai';
 import {
@@ -10,19 +10,33 @@ import {
 } from 'react-icons/bs';
 import { IoWaterOutline } from 'react-icons/io5';
 import { FiSettings } from 'react-icons/fi';
+import { UserDataContext } from '../../../config/UserData/storage';
 
 function Weather() {
-  const [Country, setCountry] = useState('Tunisia');
+  const { UserData, setUserData } = useContext(UserDataContext);
+  const [Country, setCountry] = useState(UserData.location || 'Tunisia');
   const [WeatherData, setWeatherData] = useState(null);
+  const [Errors, setErrors] = useState(null);
   async function getWeather() {
     await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${Country}&units=metric&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`,
     )
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok) {
+          setErrors(null);
+          return res.json();
+        }
+        throw Error('Country Not found');
+      })
       .then((data) => {
         setTimeout(() => {
           setWeatherData(data);
-        }, 2000);
+        }, 1000);
+      }).catch((e) => {
+        setErrors(e.message);
+        setUserData((prev) => ({
+          ...prev, location: 'Tunisia',
+        }));
       });
   }
   useEffect(() => {
@@ -157,18 +171,23 @@ function Weather() {
                     onSubmit={(e) => {
                       e.preventDefault();
                       setCountry(e.target.country.value);
+                      setUserData((prev) => ({
+                        ...prev, location: e.target.country.value,
+                      }));
                     }}
                   >
                     <span className="mt-20 font-bold">Select Country</span>
                     <input
                       name="country"
-                      className="mt-5 p-4 input bg-secondary focus:bg-transparent text-primary-content font-bold"
-                      defaultValue="Tunisia"
+                      className={`mt-5 ${Errors && 'input-error'}  p-4 input  bg-secondary focus:bg-transparent text-primary-content font-bold`}
+                      defaultValue={Country}
+                      onChange={() => setErrors(null)}
                       type="text"
                     />
                     <button type="submit" className="btn hover:none rounded mt-4">
                       Save
                     </button>
+                    <p className="text-error">{Errors}</p>
                   </form>
                 </div>
               </div>
