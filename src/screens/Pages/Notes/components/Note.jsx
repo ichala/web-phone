@@ -2,13 +2,14 @@ import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ImArrowLeft } from 'react-icons/im';
 import { AiFillDelete } from 'react-icons/ai';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { UserDataContext } from '../../../../config/UserData/storage';
 
 function Note() {
   const { id } = useParams();
   const { UserData, setUserData } = useContext(UserDataContext);
   const CurrentNote = UserData.notes?.filter((n) => n.id === id);
+  const navigate = useNavigate();
   function updateNote(e) {
     setUserData((prevState) => ({
       ...prevState,
@@ -18,6 +19,13 @@ function Note() {
         }
         return note;
       }),
+    }));
+  }
+  function DeleteNote(id) {
+    navigate('/notes');
+    setUserData((prevState) => ({
+      ...prevState,
+      notes: UserData.notes.filter((note) => note.id !== id),
     }));
   }
 
@@ -35,7 +43,7 @@ function Note() {
           <Link to="/notes">
             <ImArrowLeft size={25} />
           </Link>
-          <div><AiFillDelete size={25} /></div>
+          <div><AiFillDelete size={25} onClick={() => DeleteNote(id)} className="cursor-pointer" /></div>
         </div>
       </div>
       <div className="flex flex-col h-full">
