@@ -61,7 +61,7 @@ function JokesApp() {
         : (
           <div className="relative h-full">
             <div className="flex mt-10 justify-between p-4">
-              <select className="select w-40" defaultValue={UserData.jokes?.language || 'English'} onChange={(e) => setUserData({ ...UserData, jokes: { ...UserData.jokes, language: e.target.value } })}>
+              <select className="select w-40" defaultValue={UserData.jokes?.language || 'en'} onChange={(e) => setUserData({ ...UserData, jokes: { ...UserData.jokes, language: e.target.value } })}>
                 <option value="cs">Czech</option>
                 <option value="de">German</option>
                 <option value="en">English</option>
