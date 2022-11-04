@@ -9,9 +9,7 @@ function Login() {
   useEffect(() => {
     if (user) {
       const returnUrl = searchParams.get('returnUrl');
-      if (returnUrl && returnUrl !== '/') {
-        window.location.href = returnUrl;
-      }
+      window.location.href = returnUrl || '/';
     }
   }, [user]);
 

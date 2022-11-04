@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { CgDarkMode } from 'react-icons/cg';
+import { BiLogOutCircle } from 'react-icons/bi';
+import { signOut } from 'firebase/auth';
 import { UserDataContext } from '../../config/UserData/storage';
+import { auth } from '../../config/firebase';
 
 function Settings() {
   const { UserData, setUserData } = useContext(UserDataContext);
@@ -27,8 +30,18 @@ function Settings() {
             />
           </span>
         </li>
-        <li><a href="#s">Theme</a></li>
-        <li><a href="#s">Item 3</a></li>
+        <li>
+          <button
+            type="button"
+            className="flex justify-center items-center gap-1 bg-transparent hover:bg-error hover:text-error-content"
+            onClick={() => {
+              signOut(auth);
+            }}
+          >
+            <BiLogOutCircle size={20} />
+            Logout
+          </button>
+        </li>
       </ul>
     </div>
   );

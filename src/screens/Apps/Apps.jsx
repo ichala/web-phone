@@ -32,6 +32,13 @@ function Apps() {
           </div>
         </div>
       </Link>
+      <Link to="/jokes">
+        <div className="avatar">
+          <div className="w-16 mask mask-squircle">
+            <img src="/assets/images/funny.jpg" alt="Jokes App" />
+          </div>
+        </div>
+      </Link>
 
       {/* <div className="avatar">
         <div className="w-16 mask mask-squircle">
