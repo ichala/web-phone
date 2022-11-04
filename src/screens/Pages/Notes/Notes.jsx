@@ -79,7 +79,7 @@ function Notes() {
           <>
             <div className="relative  h-full">
               <div className="mt-10 p-4 flex items-center text-orange-400">
-                <input type="text" onChange={(e) => filternotes(e.target.value)} className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
+                <input disabled={!FiltredNotes} type="text" onChange={(e) => filternotes(e.target.value)} className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
               <div className="flex flex-wrap justify-center max-h-[550px] items-center gap-4 overflow-y-scroll no-scrollbar">
                 {UserData.notes ? FiltredNotes.map((note) => (
