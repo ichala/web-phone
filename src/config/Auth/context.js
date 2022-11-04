@@ -15,6 +15,7 @@ export const AuthContextProvider = ({ children }) => {
         setCurrentUser({ name: user.displayName, image, id: user.uid });
         setLoading(false);
       } else {
+        setCurrentUser(null);
         setLoading(false);
       }
     });
