@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { motion } from 'framer-motion';
-
 import {
   BsArrowDownShort, BsArrowUpRightSquare, BsArrowUpShort, BsStar, BsStarFill,
 } from 'react-icons/bs';
@@ -60,6 +59,7 @@ function CoinMin({ data }) {
         </div>
       </div>
     </motion.div>
+
   );
 }
 

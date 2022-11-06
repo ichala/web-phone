@@ -4,7 +4,7 @@ import Login from '../screens/Login/Login';
 import Calculator from '../screens/Pages/Calculator/Calculator';
 import TestCom from '../screens/Pages/CryptoApp/Components/AllCryptos';
 import CryptoApp from '../screens/Pages/CryptoApp/CryptoApp';
-import CryptoDetails from '../screens/Pages/CryptoApp/CryptoDetails/CryptoDetails';
+import CryptoDetails from '../screens/Pages/CryptoApp/Components/CryptoDetails';
 import JokesApp from '../screens/Pages/JokesApp/JokesApp';
 import Note from '../screens/Pages/Notes/components/Note';
 import Notes from '../screens/Pages/Notes/Notes';
@@ -62,7 +62,7 @@ const routesConfig = [
             element: <TestCom />,
           },
           {
-            path: 'coin/:id',
+            path: 'coin/:CoinId',
             element: <CryptoDetails />,
           },
         ],

@@ -7,16 +7,21 @@ function TestCom() {
   const coins = useOutletContext();
   return (
     <>
-      {coins.map((coin) => (
-        <button
-          type="button"
-          key={coin.uuid}
-          onClick={() => { navigate(`/cryptoapp/coin/${coin.uuid}`); }}
-          className="w-1/3 h-[160px] "
-        >
-          <CoinMin data={coin} />
-        </button>
-      ))}
+      <div className="flex flex-wrap max-h-[590px] overflow-y-scroll no-scrollbar">
+
+        {coins.map((coin) => (
+          <div
+            tabIndex={-42}
+            type="button"
+            role="presentation"
+            key={coin.uuid}
+            onClick={() => { navigate(`/cryptoapp/coin/${coin.uuid}`); }}
+            className="w-1/3 h-[160px] "
+          >
+            <CoinMin data={coin} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

@@ -15,7 +15,7 @@ function CryptoApp() {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '9ec6b6afa2msh525393ead27bda3p1c32f0jsn2cffb1b4e514',
+        'X-RapidAPI-Key': process.env.REACT_APP_RAPIDAPI_COINRANK_KEY,
         'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com',
       },
       params: {
@@ -72,9 +72,7 @@ function CryptoApp() {
                 <span className="absoluteh-full w-full rounded-full bg-sky-400 opacity-75" />
               </span>
             </div>
-            <div className="flex flex-wrap max-h-[590px] overflow-y-scroll no-scrollbar">
-              <Outlet context={CryptoData.data.coins} />
-            </div>
+            <Outlet context={CryptoData.data.coins} />
           </div>
         )}
     </motion.div>
