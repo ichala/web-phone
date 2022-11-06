@@ -9,8 +9,8 @@ function Settings() {
   const { UserData, setUserData } = useContext(UserDataContext);
 
   return (
-    <div className="absolute left-0  h-full w-full mb-10">
-      <div className="text-center text-xl p-4 font-bold">Settings</div>
+    <div className="absolute bg-base-100 top-0 left-0 h-full w-full">
+      <div className="text-center mt-10 text-xl p-4 font-bold">Settings</div>
       <ul className="menu bg-base-100 w-full h-full font-semibold">
         <li>
           <span className="flex justify-between " href="#s">
