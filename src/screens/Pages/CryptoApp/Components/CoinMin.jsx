@@ -8,7 +8,8 @@ import { UserDataContext } from '../../../../config/UserData/storage';
 
 function CoinMin({ data }) {
   const { UserData, setUserData } = useContext(UserDataContext);
-  const handlefavorite = (id) => {
+  const handlefavorite = (e, id) => {
+    e.stopPropagation();
     if (UserData.CryptoApp.fav.includes(id)) {
       setUserData({
         ...UserData,
@@ -26,9 +27,9 @@ function CoinMin({ data }) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
+      className={`cursor-pointer text-white bg-gradient-to-t hover:bg-gradient-to-t ${data.change >= 0 ? ' from-slate-900 to-green-900  hover:from-slate-900 hover:to-green-700' : 'bg-gradient-to-t from-slate-900 to-red-900 hover:from-slate-900 hover:to-red-700'}  h-[160px] glass`}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className={`w-1/3 cursor-pointer text-white bg-gradient-to-t hover:bg-gradient-to-t ${data.change >= 0 ? ' from-slate-900 to-green-900  hover:from-slate-900 hover:to-green-700' : 'bg-gradient-to-t from-slate-900 to-red-900 hover:from-slate-900 hover:to-red-700'}  h-[160px] glass`}
       transition={{
         duration: 0.2,
         delay: 0.1,
@@ -37,7 +38,7 @@ function CoinMin({ data }) {
     >
       <div>
         <div className="flex justify-between p-1">
-          <button type="button" onClick={() => handlefavorite(data.uuid)}>{UserData.CryptoApp.fav.includes(data.uuid) ? <BsStarFill className="text-yellow-200" /> : <BsStar />}</button>
+          <button type="button" onClick={(e) => handlefavorite(e, data.uuid)}>{UserData.CryptoApp.fav.includes(data.uuid) ? <BsStarFill className="text-yellow-200" /> : <BsStar />}</button>
           <BsArrowUpRightSquare />
         </div>
         <div className="flex justify-center mt-2">

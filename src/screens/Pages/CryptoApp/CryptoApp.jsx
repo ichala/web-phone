@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { UserDataContext } from '../../../config/UserData/storage';
-import CoinMin from './Components/CoinMin';
+// import CoinMin from './Components/CoinMin';
 
 function CryptoApp() {
   const [CryptoData, setCryptoData] = useState(null);
   const { UserData, setUserData } = useContext(UserDataContext);
-
+  const navigate = useNavigate();
   async function getCryptoData() {
     if (!UserData.CryptoApp) {
       setUserData({ ...UserData, CryptoApp: { fav: [] } });
@@ -32,6 +33,7 @@ function CryptoApp() {
       .then((data) => {
         setTimeout(() => {
           setCryptoData(data);
+          navigate('all');
         }, 2000);
       }).catch((err) => console.error(err));
   }
@@ -71,9 +73,7 @@ function CryptoApp() {
               </span>
             </div>
             <div className="flex flex-wrap max-h-[590px] overflow-y-scroll no-scrollbar">
-              {CryptoData.data.coins.map((coin) => (
-                <CoinMin key={coin.uuid} data={coin} />
-              ))}
+              <Outlet context={CryptoData.data.coins} />
             </div>
           </div>
         )}
