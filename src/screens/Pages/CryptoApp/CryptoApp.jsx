@@ -6,6 +6,7 @@ import { UserDataContext } from '../../../config/UserData/storage';
 function CryptoApp() {
   const [CryptoData, setCryptoData] = useState(null);
   const { UserData, setUserData } = useContext(UserDataContext);
+  const [Errors, setErrors] = useState(null);
   const navigate = useNavigate();
   async function getCryptoData() {
     if (!UserData.CryptoApp) {
@@ -26,13 +27,12 @@ function CryptoApp() {
         offset: '0',
       },
     };
-
     await fetch('https://coinranking1.p.rapidapi.com/coins', options)
       .then((response) => response.json())
       .then((data) => {
         setCryptoData(data);
         navigate('all');
-      }).catch((err) => console.error(err));
+      }).catch(() => setErrors('Api Error'));
   }
 
   useEffect(() => {
@@ -52,13 +52,18 @@ function CryptoApp() {
     >
       {!CryptoData
         ? (
-          <div className="flex justify-center items-center h-full w-full">
+          <div className="flex flex-col justify-center items-center h-full w-full">
             <div className="flex  justify-center ">
               <h1 className="text-3xl text-white font-bold"> CryptoApp</h1>
               <span className="flex h-3 w-3">
                 <span className="animate-ping absoluteh-full w-full rounded-full bg-sky-400 opacity-75" />
               </span>
             </div>
+            {Errors && (
+            <div className="badge badge-error mt-5">
+              {Errors}
+            </div>
+            )}
           </div>
         )
         : (
