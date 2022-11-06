@@ -4,6 +4,7 @@ import { ImArrowLeft } from 'react-icons/im';
 import {
   BsArrowDownShort, BsArrowUpShort, BsStar, BsStarFill,
 } from 'react-icons/bs';
+import { motion } from 'framer-motion';
 import millify from 'millify';
 import CryptoChart from './CryptoChart';
 import { UserDataContext } from '../../../../config/UserData/storage';
@@ -50,7 +51,17 @@ function CryptoDetails() {
 
       <div><CryptoChart coin={coin} /></div>
       <div className="flex w-full flex-col justify-center items-center text-white ">
-        <div className="flex  gap-2 p-4  bg-gradient-to-r from-slate-900 to-indigo-900 w-full  w-full  justify-center items-center">
+        <motion.div
+          initial={{ y: 100 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.2,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="flex  gap-2 p-4  bg-gradient-to-r from-slate-900 to-indigo-900 w-full  w-full  justify-center items-center"
+        >
           <span className="font-semibold">
             Change:
           </span>
@@ -59,8 +70,18 @@ function CryptoDetails() {
             %
             {coin.change >= 0 ? <BsArrowUpShort size={13} /> : <BsArrowDownShort size={13} />}
           </span>
-        </div>
-        <div className="flex  gap-2  p-4 bg-gradient-to-l from-slate-900 to-indigo-900 w-full  justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ y: 100 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.4,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="flex  gap-2  p-4 bg-gradient-to-l from-slate-900 to-indigo-900 w-full  justify-center items-center"
+        >
           <span className="font-semibold">
             Price:
           </span>
@@ -68,24 +89,46 @@ function CryptoDetails() {
             { millify(coin.price) }
             $
           </span>
-        </div>
-        <div className="flex gap-2 bg-gradient-to-r from-slate-900 to-indigo-900  p-4  w-full  justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ y: 100 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="flex gap-2 bg-gradient-to-r from-slate-900 to-indigo-900  p-4  w-full  justify-center items-center"
+        >
           <span className="font-semibold">
             MarketCap:
           </span>
           <span className="font-semibold">
             { millify(coin.marketCap) }
           </span>
-        </div>
-        <div className="flex  gap-2 bg-gradient-to-l from-slate-900 to-indigo-900  p-4  w-full  justify-center items-center">
+        </motion.div>
+        <motion.div
+          initial={{ y: 100 }}
+          whileInView={{ y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: 0.1,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+          className="flex  gap-2 bg-gradient-to-l from-slate-900 to-indigo-900  p-4  w-full  justify-center items-center"
+        >
           <span className="font-semibold">
             BTC Price:
           </span>
-          <span className="font-semibold">
+          <span
+            className="font-semibold"
+          >
             { Number(coin.btcPrice).toFixed(5) }
             $
           </span>
-        </div>
+        </motion.div>
       </div>
     </>
   );

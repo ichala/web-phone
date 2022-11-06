@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { useContext, useEffect, useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { UserDataContext } from '../../../config/UserData/storage';
-// import CoinMin from './Components/CoinMin';
 
 function CryptoApp() {
   const [CryptoData, setCryptoData] = useState(null);
@@ -31,10 +30,8 @@ function CryptoApp() {
     await fetch('https://coinranking1.p.rapidapi.com/coins', options)
       .then((response) => response.json())
       .then((data) => {
-        setTimeout(() => {
-          setCryptoData(data);
-          navigate('all');
-        }, 2000);
+        setCryptoData(data);
+        navigate('all');
       }).catch((err) => console.error(err));
   }
 
