@@ -12,6 +12,7 @@ import Tictac from '../screens/Pages/Tictac/Tictac';
 import Weather from '../screens/Pages/Weather/Weather';
 import Settings from '../screens/Settings/Settings';
 import Protected from './Auth/Protected';
+import Wallpaper from '../screens/Settings/Wallpaper/Wallpaper';
 
 const routesConfig = [
   {
@@ -23,7 +24,16 @@ const routesConfig = [
       },
       {
         path: '/settings',
-        element: <Settings />,
+        children: [
+          {
+            path: '/settings',
+            element: <Settings />,
+          },
+          {
+            path: 'wallpaper',
+            element: <Wallpaper />,
+          },
+        ],
       },
       {
         path: '/apps',
