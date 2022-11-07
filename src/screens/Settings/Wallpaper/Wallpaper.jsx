@@ -100,7 +100,7 @@ function Wallpaper() {
                     }}
                     className={`h-[200px] w-[140px] rounded bg-black ${wp.id === 0 && 'border-2 border-slate-800'}`}
                   >
-                    {UserData.settings.wallpaper.id === wp.id && <div className="badge m-1 badge-success ">Selected</div> }
+                    {UserData.settings.wallpaper.id === wp.id && <div className="badge m-1 badge-success rounded">Selected</div> }
                   </div>
                 </SwiperSlide>
               ))}
