@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { ImArrowLeft } from 'react-icons/im';
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MdWallpaper } from 'react-icons/md';
@@ -77,6 +78,7 @@ function Wallpaper() {
             </span>
             <div />
           </div>
+          <p className="font-semibold mt-3 ml-3">Choose a background</p>
           <div className="p-2">
             <Swiper
               spaceBetween={50}
@@ -103,9 +105,12 @@ function Wallpaper() {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <div className="flex justify-between p-1">
+              <BsFillArrowLeftCircleFill className="cursor-pointer review-swiper-button-prev" />
+              <BsFillArrowRightCircleFill className="cursor-pointer review-swiper-button-next" />
+            </div>
           </div>
-          <button type="button" className="review-swiper-button-next">next</button>
-          <button type="button" className="review-swiper-button-prev">prev</button>
+
         </div>
       </motion.div>
     </div>
