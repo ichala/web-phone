@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { CgDarkMode } from 'react-icons/cg';
 import { BiLogOutCircle } from 'react-icons/bi';
+import { MdWallpaper } from 'react-icons/md';
 import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
 import { UserDataContext } from '../../config/UserData/storage';
 import { auth } from '../../config/firebase';
 
 function Settings() {
   const { UserData, setUserData } = useContext(UserDataContext);
-
   return (
     <div className="absolute bg-base-100 top-0 left-0 h-full w-full">
       <div className="text-center mt-10 text-xl p-4 font-bold">Settings</div>
@@ -30,6 +31,16 @@ function Settings() {
             />
           </span>
         </li>
+        <Link to="wallpaper">
+          <li>
+            <span className="flex justify-between " href="#s">
+              <div to="wallpaper" className="flex items-center gap-2">
+                <MdWallpaper size={20} />
+                Wallpapper
+              </div>
+            </span>
+          </li>
+        </Link>
         <li>
           <button
             type="button"
