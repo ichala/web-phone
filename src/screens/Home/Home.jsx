@@ -8,7 +8,6 @@ function Home() {
   const time = moment().format('HH:MM');
   const date = moment().format('MMM Do YY');
   const user = useContext(AuthContext).currentUser;
-  console.log(user);
   return (
 
     <div className="absolute top-0 left-0 z-0 p-5 h-full w-full text-white">
