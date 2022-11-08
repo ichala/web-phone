@@ -4,6 +4,7 @@ import { BiLogOutCircle } from 'react-icons/bi';
 import { MdWallpaper } from 'react-icons/md';
 import { signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+import { BsGithub } from 'react-icons/bs';
 import { UserDataContext } from '../../config/UserData/storage';
 import { auth } from '../../config/firebase';
 
@@ -42,6 +43,17 @@ function Settings() {
           </li>
         </Link>
         <li>
+          <a
+            href="https://github.com/ichala/web-phone"
+            target="_blank"
+            className="flex justify-center items-center gap-1 "
+            rel="noreferrer"
+          >
+            <BsGithub size={20} />
+            Source Code
+          </a>
+        </li>
+        <li>
           <button
             type="button"
             className="flex justify-center items-center gap-1 bg-transparent hover:bg-error hover:text-error-content"
@@ -53,6 +65,7 @@ function Settings() {
             Logout
           </button>
         </li>
+
       </ul>
     </div>
   );
