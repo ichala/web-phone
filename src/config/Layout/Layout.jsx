@@ -16,7 +16,7 @@ function Layout({ children }) {
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}
-            className="artboard p-9 relative  bg-base-100 overflow-hidden phone-3"
+            className="artboard p-9 relative top-0  overflow-hidden phone-3"
           >
             {children}
             <BottomNav />

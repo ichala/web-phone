@@ -10,7 +10,7 @@ function Home() {
   const user = useContext(AuthContext).currentUser;
   return (
 
-    <div className="absolute top-0 left-0 z-0 p-5 h-full w-full text-white">
+    <div className="homeborder absolute top-0 left-0 z-0 glass rounded-md h-[700px] p-5 h-full w-full text-white">
       <h1 className=" text-7xl font-bold text-white mt-4">Hello There !</h1>
       <h2 className=" text-5xl mt-10 text-center text-white">{time}</h2>
       <h3 className=" text-2xl text-center text-white">{date}</h3>
