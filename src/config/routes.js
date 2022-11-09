@@ -13,6 +13,8 @@ import Weather from '../screens/Pages/Weather/Weather';
 import Settings from '../screens/Settings/Settings';
 import Protected from './Auth/Protected';
 import Wallpaper from '../screens/Settings/Wallpaper/Wallpaper';
+import Contacts from '../screens/Pages/Contacts/Contacts';
+import AllContacts from '../screens/Pages/Contacts/Components/AllContacts';
 
 const routesConfig = [
   {
@@ -74,6 +76,16 @@ const routesConfig = [
           {
             path: 'coin/:CoinId',
             element: <CryptoDetails />,
+          },
+        ],
+      },
+      {
+        path: '/contacts',
+        element: <Contacts />,
+        children: [
+          {
+            path: 'all',
+            element: <AllContacts />,
           },
         ],
       },
