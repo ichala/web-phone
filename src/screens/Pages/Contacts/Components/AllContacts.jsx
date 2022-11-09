@@ -202,6 +202,7 @@ function AllContacts() {
     avatar: 'https://robohash.org/incidunthicsoluta.png?size=50x50&set=set1',
     name: 'Vic Shipston',
   }];
+
   return (
     <div>
       <div className="text-2xl text-center mt-10  font-bold text-black">All Contacts</div>
@@ -211,8 +212,8 @@ function AllContacts() {
             <li key={contact.id} className="hover-bordered font-normal italic hover:subpixel-antialiased">
               <a href="#s">
                 <div className="avatar ">
-                  <div className="w-7 rounded-xl">
-                    <img alt={contact.name} src={contact.avatar} />
+                  <div className="important-flex w-9 rounded-full bg-pink-500 w-full h-full justify-center items-center font-semibold ">
+                    <span>{contact.name[0]}</span>
                   </div>
                 </div>
                 {contact.name}
