@@ -31,7 +31,7 @@ function NewContact() {
           <input maxLength={30} onChange={(e) => setFormData({ ...FormData, fullname: e.target.value.slice(0, 30) })} type="text" placeholder="Full Name" className="input capitalize input-bordered w-full max-w-xs rounded" />
         </div>
         <div className="form-control w-full  flex flex-col justify-center items-center">
-          <input type="text" maxLength={40} onChange={(e) => setFormData({ ...FormData, email: e.target.value.slice(0, 40) })} placeholder="@Email" className="input input-bordered w-full max-w-xs rounded" />
+          <input type="text" maxLength={40} onChange={(e) => setFormData({ ...FormData, email: e.target.value.slice(0, 40) })} placeholder="Email" className="input input-bordered w-full max-w-xs rounded" />
         </div>
         <div className="form-control w-full  flex flex-col justify-center items-center">
           <input type="tel" maxLength={20} onChange={(e) => setFormData({ ...FormData, mobile: e.target.value.slice(0, 20) })} placeholder="Phone Number" className="input input-bordered w-full max-w-xs rounded" />

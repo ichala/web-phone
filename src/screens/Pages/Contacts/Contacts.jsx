@@ -8,7 +8,12 @@ function Contacts() {
   const { UserData, setUserData } = useContext(UserDataContext);
   useEffect(() => {
     if (!UserData.contacts) {
-      setUserData({ ...UserData, contacts: [] });
+      setUserData({
+        ...UserData,
+        contacts: [{
+          id: 1, fullname: 'Ali Jendoubi (Chala)', email: 'contact@chala.dev', mobile: '+21658225897',
+        }],
+      });
     }
     navigate('all');
   }, []);
