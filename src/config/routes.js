@@ -15,6 +15,7 @@ import Protected from './Auth/Protected';
 import Wallpaper from '../screens/Settings/Wallpaper/Wallpaper';
 import Contacts from '../screens/Pages/Contacts/Contacts';
 import AllContacts from '../screens/Pages/Contacts/Components/AllContacts';
+import NewContact from '../screens/Pages/Contacts/Components/NewContact';
 
 const routesConfig = [
   {
@@ -86,6 +87,10 @@ const routesConfig = [
           {
             path: 'all',
             element: <AllContacts />,
+          },
+          {
+            path: 'new',
+            element: <NewContact />,
           },
         ],
       },
