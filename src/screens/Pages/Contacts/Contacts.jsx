@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { UserDataContext } from '../../../config/UserData/storage';
 
 function Contacts() {
   const navigate = useNavigate();
+  const { UserData, setUserData } = useContext(UserDataContext);
   useEffect(() => {
+    if (!UserData.contacts) {
+      setUserData({ ...UserData, contacts: [] });
+    }
     navigate('all');
   }, []);
 
