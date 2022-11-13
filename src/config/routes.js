@@ -16,6 +16,7 @@ import Wallpaper from '../screens/Settings/Wallpaper/Wallpaper';
 import Contacts from '../screens/Pages/Contacts/Contacts';
 import AllContacts from '../screens/Pages/Contacts/Components/AllContacts';
 import NewContact from '../screens/Pages/Contacts/Components/NewContact';
+import ContactInfo from '../screens/Pages/Contacts/Components/ContactInfo';
 
 const routesConfig = [
   {
@@ -91,6 +92,10 @@ const routesConfig = [
           {
             path: 'new',
             element: <NewContact />,
+          },
+          {
+            path: ':id',
+            element: <ContactInfo />,
           },
         ],
       },
