@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { AiOutlineLeft } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { UserDataContext } from '../../../../config/UserData/storage';
@@ -20,7 +21,14 @@ function NewContact() {
   };
   return (
     <>
-      <div className="text-2xl text-center mt-10 italic subpixel-antialiased font-bold text-black">New Contact</div>
+      <div className="flex justify-between mt-7 p-3 text-gray-400 items-center">
+        <Link to="/contacts/all">
+          <AiOutlineLeft size={30} />
+        </Link>
+
+        <div className="text-2xl text-center italic subpixel-antialiased  text-black font-light">New Contact</div>
+        <div />
+      </div>
       <div className="flex flex-col gap-4  mt-20 justify-center items-center">
         <div className="avatar ">
           <div className="bg-pink-500 important-flex w-20 text-white rounded-full w-full h-full justify-center items-center font-semibold">
@@ -28,18 +36,15 @@ function NewContact() {
           </div>
         </div>
         <div className="form-control  w-full  flex flex-col justify-center items-center">
-          <input maxLength={30} onChange={(e) => setFormData({ ...FormData, fullname: e.target.value.slice(0, 30) })} type="text" placeholder="Full Name" className="input capitalize input-bordered w-full max-w-xs rounded" />
+          <input maxLength={30} onChange={(e) => setFormData({ ...FormData, fullname: e.target.value.slice(0, 30) })} type="text" placeholder="Full Name" className="input bg-transparent capitalize  border-2 input-bordered w-full max-w-xs rounded" />
         </div>
         <div className="form-control w-full  flex flex-col justify-center items-center">
-          <input type="text" maxLength={40} onChange={(e) => setFormData({ ...FormData, email: e.target.value.slice(0, 40) })} placeholder="Email" className="input input-bordered w-full max-w-xs rounded" />
+          <input type="text" maxLength={40} onChange={(e) => setFormData({ ...FormData, email: e.target.value.slice(0, 40) })} placeholder="Email" className="input bg-transparent input-bordered border-2  w-full max-w-xs rounded" />
         </div>
         <div className="form-control w-full  flex flex-col justify-center items-center">
-          <input type="tel" maxLength={20} onChange={(e) => setFormData({ ...FormData, mobile: e.target.value.slice(0, 20) })} placeholder="Phone Number" className="input input-bordered w-full max-w-xs rounded" />
+          <input type="tel" maxLength={20} onChange={(e) => setFormData({ ...FormData, mobile: e.target.value.slice(0, 20) })} placeholder="Phone Number" className="input bg-transparent input-bordered  border-2 w-full max-w-xs rounded" />
         </div>
-        <button type="button" onClick={addContact} className="btn rounded-xl text-white bg-gray-800 hover:bg-gray-700 uppercase w-[100px]">Add</button>
-        <Link to="/contacts/all">
-          <button type="button" className="btn btn-error text-white uppercase rounded-xl w-[100px]">Cancel</button>
-        </Link>
+        <button type="button" onClick={addContact} className="btn rounded-xl text-white bg-transparent shadow-xl text-gray-400 hover:text-white border-2 border-gray-400  uppercase w-[100px]">Add</button>
       </div>
     </>
   );
