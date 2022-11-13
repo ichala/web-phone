@@ -43,7 +43,7 @@ function AllContacts() {
       </div>
       <div className="h-[475px]  overflow-y-scroll no-scrollbar bg-white shadow-md rounded-lg mt-5 m-2">
         <ul className="menu font w-full  text-black divide-y">
-          {FiltredContacts.length < 1 && <p className="text-center text-sm text-gray-400 subpixel-antialiased p-3">There no contacts now</p>}
+          {FiltredContacts.length < 1 && <p className="text-center text-sm text-gray-400 subpixel-antialiased p-3">There no contacts found</p>}
           {FiltredContacts.map((contact) => (
             <li key={contact.id} className="hover-bordered font-normal italic subpixel-antialiased">
               <Link to={`/contacts/${contact.id}`}>
