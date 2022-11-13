@@ -11,7 +11,7 @@ function Contacts() {
       setUserData({
         ...UserData,
         contacts: [{
-          id: 1, fullname: 'Ali Jendoubi (Chala)', email: 'contact@chala.dev', mobile: '+21658225897',
+          id: 'ICHALA', fullname: 'Ali Jendoubi (Chala)', email: 'contact@chala.dev', mobile: '+21658225897',
         }],
       });
     }
@@ -20,7 +20,7 @@ function Contacts() {
 
   return (
     <motion.div
-      className="absolute top-0 left-0 bg-white h-full w-full"
+      className="absolute top-0 left-0 bg-gray-100 h-full w-full"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{
