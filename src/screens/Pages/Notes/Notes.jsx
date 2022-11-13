@@ -81,7 +81,7 @@ function Notes() {
               <div className="mt-10 p-4 flex items-center text-orange-400">
                 <input disabled={!FiltredNotes} type="text" onChange={(e) => filternotes(e.target.value)} className="input input-md w-full bg-transparent glass border-1 rounded-full border-orange-400 " placeholder="🔍 Search Notes" />
               </div>
-              <div className="flex flex-wrap justify-center max-h-[550px] items-center gap-4 overflow-y-scroll no-scrollbar">
+              <div className="flex flex-wrap justify-center max-h-[550px] items-center gap-4">
                 {UserData.notes ? FiltredNotes.map((note) => (
                   <Link key={note.id} to={`${note.id}`}>
                     <NoteMin data={note} />

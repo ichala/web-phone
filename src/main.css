@@ -26,6 +26,10 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
+.important-flex{
+  display: flex !important;
+}
+
 .homeborder {
   border-radius: 38.5px;
 }
