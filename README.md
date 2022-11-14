@@ -1,3 +1,8 @@
+<p align='center'>
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/ichala/web-phone?color=yellow&label=Repo-Size" />
+<img alt="GitHub forks" src="https://img.shields.io/github/forks/ichala/web-phone?style=social">
+<img alt="GitHub forks" src="https://img.shields.io/badge/Open-Source-green">
+</p>
 
 # WebPhone
 
