@@ -8,7 +8,6 @@ import CryptoDetails from '../screens/Pages/CryptoApp/Components/CryptoDetails';
 import JokesApp from '../screens/Pages/JokesApp/JokesApp';
 import Note from '../screens/Pages/Notes/components/Note';
 import Notes from '../screens/Pages/Notes/Notes';
-import Tictac from '../screens/Pages/Tictac/Tictac';
 import Weather from '../screens/Pages/Weather/Weather';
 import Settings from '../screens/Settings/Settings';
 import Protected from './Auth/Protected';
@@ -56,10 +55,6 @@ const routesConfig = [
         element: <Note />,
       },
       {
-        path: '/tictactoe',
-        element: <Tictac />,
-      },
-      {
         path: '/jokes',
         element: <JokesApp />,
       },
@@ -77,7 +72,11 @@ const routesConfig = [
           },
         ],
       },
-
+      // TODO: Add more Routes/Apps here
+      // {
+      //   path: '/tictactoe',
+      //   element: <Tictac />,
+      // },
     ],
   },
   {
