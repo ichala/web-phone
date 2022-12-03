@@ -72,6 +72,10 @@ const routesConfig = [
           },
         ],
       },
+      {
+        path: '*',
+        element: <Home />,
+      },
       // TODO: Add more Routes/Apps here
       // {
       //   path: '/tictactoe',
