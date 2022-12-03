@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       if (user) {
-        const image = user.photoURL || 'https://en.pimg.jp/072/735/680/1/72735680.jpg';
+        const image = user.photoURL || '/assets/images/no-image.png';
         setCurrentUser({ name: user.displayName, image, id: user.uid });
         setLoading(false);
       } else {
