@@ -8,15 +8,10 @@ import CryptoDetails from '../screens/Pages/CryptoApp/Components/CryptoDetails';
 import JokesApp from '../screens/Pages/JokesApp/JokesApp';
 import Note from '../screens/Pages/Notes/components/Note';
 import Notes from '../screens/Pages/Notes/Notes';
-import Tictac from '../screens/Pages/Tictac/Tictac';
 import Weather from '../screens/Pages/Weather/Weather';
 import Settings from '../screens/Settings/Settings';
 import Protected from './Auth/Protected';
 import Wallpaper from '../screens/Settings/Wallpaper/Wallpaper';
-import Contacts from '../screens/Pages/Contacts/Contacts';
-import AllContacts from '../screens/Pages/Contacts/Components/AllContacts';
-import NewContact from '../screens/Pages/Contacts/Components/NewContact';
-import ContactInfo from '../screens/Pages/Contacts/Components/ContactInfo';
 
 const routesConfig = [
   {
@@ -60,10 +55,6 @@ const routesConfig = [
         element: <Note />,
       },
       {
-        path: '/tictactoe',
-        element: <Tictac />,
-      },
-      {
         path: '/jokes',
         element: <JokesApp />,
       },
@@ -81,25 +72,11 @@ const routesConfig = [
           },
         ],
       },
-      {
-        path: '/contacts',
-        element: <Contacts />,
-        children: [
-          {
-            path: 'all',
-            element: <AllContacts />,
-          },
-          {
-            path: 'new',
-            element: <NewContact />,
-          },
-          {
-            path: ':id',
-            element: <ContactInfo />,
-          },
-        ],
-      },
-
+      // TODO: Add more Routes/Apps here
+      // {
+      //   path: '/tictactoe',
+      //   element: <Tictac />,
+      // },
     ],
   },
   {

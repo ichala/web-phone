@@ -1,28 +1,15 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp, getApp, getApps } from 'firebase/app';
-import { getDatabase } from 'firebase/database';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { getStorage, ref } from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT,
-  storageBucket: process.env.REACT_APP_FIREBASE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_SENDER,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-  measurementId: process.env.REACT_APP_FIREBASE_MESUREMENT,
-  databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
 };
 
 // Initialize Firebase
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-export const db = getFirestore(app);
-export const database = getDatabase(app);
-export const auth = getAuth();
+export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-export const storage = getStorage(app);
-export const listRef = ref(storage, 'Media');
 export const signInWithGoogle = () => signInWithPopup(auth, provider);

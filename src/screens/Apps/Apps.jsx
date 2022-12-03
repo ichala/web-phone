@@ -11,13 +11,6 @@ function Apps() {
           </div>
         </div>
       </Link>
-      <Link to="/tictactoe">
-        <div className="avatar">
-          <div className="w-16 mask mask-squircle">
-            <img src="/assets/images/tiktak.jpg" alt="tictactoe App" />
-          </div>
-        </div>
-      </Link>
       <Link to="/calculator">
         <div className="avatar">
           <div className="w-16 mask mask-squircle">
@@ -42,17 +35,19 @@ function Apps() {
       <Link to="/cryptoapp">
         <div className="avatar">
           <div className="w-16 mask mask-squircle">
-            <img src="/assets/images/cryptoapp.png" alt="CryptoApp" />
+            <img src="/assets/images/cryptoapp.png" alt="Jokes App" />
           </div>
         </div>
       </Link>
-      <Link to="/contacts">
+      {/* //TODO: Add more apps here */}
+      {/* <Link to="/tictactoe">
         <div className="avatar">
           <div className="w-16 mask mask-squircle">
-            <img src="/assets/images/contact.png" alt="Contacts App" />
+            <img src="/assets/images/tiktak.jpg" alt="tictactoe App" />
           </div>
         </div>
-      </Link>
+      </Link> */}
+
     </div>
   );
 }
