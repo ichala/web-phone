@@ -11,6 +11,7 @@ function Notes() {
   const [Loading, setLoading] = useState(true);
   const { UserData, setUserData } = useContext(UserDataContext);
   const navigate = useNavigate();
+  const { notes } = UserData;
   const [FiltredNotes, setFiltredNotes] = useState(UserData.notes);
   const CreateNote = () => {
     const date = moment().format('MMM DD');
@@ -40,7 +41,7 @@ function Notes() {
   };
   function filternotes(filter) {
     if (filter !== '') {
-      setFiltredNotes(FiltredNotes.filter(
+      setFiltredNotes(notes.filter(
         (note) => note.title.toLowerCase().includes(filter.toLowerCase())
          || note.content.toLowerCase().includes(filter.toLowerCase()),
       ));
